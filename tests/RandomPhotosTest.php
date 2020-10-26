@@ -36,12 +36,15 @@ class RandomPhotosTest extends PluginTestCase {
         $random_photos = $component->photos();
 
         // assert all photos are from generated array
-        self::assertEquals(5, count($random_photos), 'There are 5 random photos');
+        self::assertEquals(5, count($random_photos), 
+                           'There are 5 random photos');
         $found_all = TRUE;
         foreach ($random_photos as $random_photo) {
             $found = FALSE;
-            foreach ($photos as $photo) {
-                if ($photo->id == $random_photo->id) {
+            foreach ($photos as $photo) 
+            {
+                if ($photo->id == $random_photo->id)
+                {
                     $found = TRUE;
                     break;
                 }
@@ -97,7 +100,8 @@ class RandomPhotosTest extends PluginTestCase {
      *
      * @return \Graker\PhotoAlbums\Components\RandomPhotos
      */
-    protected function createRandomPhotosComponent() {
+    protected function createRandomPhotosComponent() 
+    {
         // Spoof all the objects we need to make a page object
         $theme = Theme::load('test');
         $page = Page::load($theme, 'index.htm');
